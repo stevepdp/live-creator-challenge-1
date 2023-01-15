@@ -6,6 +6,8 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance = null;
+
     [SerializeField] Player player;
     [SerializeField] TMP_Text playerScoreText;
     [SerializeField] TMP_Text timeRemainingText;
@@ -17,8 +19,10 @@ public class GameManager : MonoBehaviour
 #if UNITY_EDITOR
         timeRemaining = 4f;
 #else
-    timeRemaining = 60f;
+        timeRemaining = 60f;
 #endif
+
+        EnforceSingleInstance(); 
     }
     void Start()
     {
@@ -40,6 +44,16 @@ public class GameManager : MonoBehaviour
 
         timeRemainingText.text = timeRemaining.ToString();
         GameOver();
+    }
+
+    void EnforceSingleInstance()
+    {
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject);
     }
 
     void GameOver() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
