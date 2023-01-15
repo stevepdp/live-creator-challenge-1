@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text playerScoreText;
     [SerializeField] TMP_Text timeRemainingText;
     [SerializeField] private float timeRemaining;
-    List<CPUPlayer> playerList;
+    public List<CPUPlayer> playerList;
 
     void Awake()
     {
