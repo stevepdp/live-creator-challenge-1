@@ -7,13 +7,22 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] Player player;
     [SerializeField] TMP_Text playerScoreText;
-    [SerializeField] private float timeRemaining = 60f;
+    [SerializeField]
+    private float timeRemaining;
 
-    private void Start()
+    void Awake()
+    {
+#if UNITY_EDITOR
+        timeRemaining = 4f;
+#else
+    timeRemaining = 60f;
+#endif
+    }
+    void Start()
     {
         StartCoroutine(CountdownTimer());
     }
-    private void Update()
+    void Update()
     {
         UpdateScore();
     }
@@ -22,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator CountdownTimer()
     {
-        while (timeRemaining > 0)
+        while (timeRemaining > 1)
         {
             timeRemaining -= 1;
             Debug.Log("Time remaining: " + timeRemaining);
