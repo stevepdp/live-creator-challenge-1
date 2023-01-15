@@ -594,7 +594,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00:00:60
+  m_text: 60
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -603,8 +603,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4290182399
+  m_fontColor: {r: 1, g: 0.9865486, b: 0.7122642, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -768,13 +768,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1307956845}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1307956850}
+        m_TargetAssemblyTypeName: Clicker, Assembly-CSharp
+        m_MethodName: IncrementScore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -830,6 +830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922f84b4f8cf89446bd634e0851dec7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 156481729}
 --- !u!1 &1420015934
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,6 +1012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 156481729}
   playerScoreText: {fileID: 749456185}
+  timeRemaining: 60
 --- !u!1 &1622689231
 GameObject:
   m_ObjectHideFlags: 0
