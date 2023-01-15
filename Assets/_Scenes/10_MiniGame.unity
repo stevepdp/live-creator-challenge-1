@@ -1012,6 +1012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 156481729}
   playerScoreText: {fileID: 749456185}
+  timeRemainingText: {fileID: 781680274}
   timeRemaining: 60
 --- !u!1 &1622689231
 GameObject:

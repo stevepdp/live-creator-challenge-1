@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] Player player;
     [SerializeField] TMP_Text playerScoreText;
-    [SerializeField]
-    private float timeRemaining;
+    [SerializeField] TMP_Text timeRemainingText;
+
+    [SerializeField] private float timeRemaining;
 
     void Awake()
     {
@@ -27,16 +29,22 @@ public class GameManager : MonoBehaviour
         UpdateScore();
     }
 
-    void UpdateScore() => playerScoreText.text = player.PlayerScore.ToString();
-
     IEnumerator CountdownTimer()
     {
         while (timeRemaining > 1)
         {
             timeRemaining -= 1;
-            Debug.Log("Time remaining: " + timeRemaining);
+            timeRemainingText.text = timeRemaining.ToString();
             yield return new WaitForSeconds(1f);
         }
-        Debug.Log("-> to leaderboard");
+
+        timeRemainingText.text = timeRemaining.ToString();
+        GameOver();
     }
+
+    void GameOver() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
+
+    void UpdateScore() => playerScoreText.text = player.PlayerScore.ToString();
+
+    
 }
